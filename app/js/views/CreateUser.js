@@ -9,12 +9,12 @@ const validate = (email, fname, lname, flag) => {
     email: email.length === 0 && flag,
     fname: fname.length === 0 && flag,
     lname: lname.length === 0 && flag,
-  };
+  }
 }
 
 export default class CreateUser extends App {
   constructor() {
-    super();
+    super()
     this.state = {
       users: JSON.parse(localStorage.getItem('users')),
       email: '',
@@ -24,32 +24,36 @@ export default class CreateUser extends App {
       everFocusedLname: false,
       everFocusedFname: false,
       inFocus: '',
-      submit :false
-    };
+      submit : false
+    }
   }
 
   handleEmailChange (evt)  {
-    this.setState({ email: evt.target.value });
+    this.setState({ email: evt.target.value })
   }
 
   handleFnameChange (evt){
-    this.setState({ fname: evt.target.value });
+    this.setState({ fname: evt.target.value })
   }
 
   handleLnameChange (evt)  {
-    this.setState({ lname: evt.target.value });
+    this.setState({ lname: evt.target.value })
   }
 
   handleSubmit (evt) {
-    evt.preventDefault( );
+    evt.preventDefault()
     evt.stopPropagation()
-    this.setState({submit:true});
-    this.canBeSubmitted();
-    console.log(this.canBeSubmitted());
+    this.setState({ submit: true })
+    this.canBeSubmitted()
+    console.log(this.canBeSubmitted())
     debugger
     if( this.state.email && this.state.fname && this.state.lname) {
-      let users = this.state.users;
-      users.push({email: this.state.email, fname: this.state.fname, lname: this.state.lname})
+      let { users } = this.state
+      users.push({
+        email: this.state.email,
+        fname: this.state.fname,
+        lname: this.state.lname
+      })
       const { email, fname, lname } = this.state;
       this.setState({
         users,
@@ -81,21 +85,21 @@ export default class CreateUser extends App {
             <input
                 className={errors.fname ? "error" : ""}
                 type="text"
-                placeholder="Enter fname"
+                placeholder="First Name"
                 value={this.state.fname}
                 onChange={this.handleFnameChange.bind(this)}
             />
             <input
                 className={errors.lname ? "error" : ""}
                 type="text"
-                placeholder="Enter lname"
+                placeholder="Last Name"
                 value={this.state.lname}
                 onChange={this.handleLnameChange.bind(this)}
             />
             <input
                 className={errors.email ? "error" : ""}
                 type="text"
-                placeholder="Enter email"
+                placeholder="Valid Email"
                 value={this.state.email}
                 onChange={this.handleEmailChange.bind(this)}
             />

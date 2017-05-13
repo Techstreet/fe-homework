@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
-import Header from 'components/header';
-import LeftPanel from 'components/leftpanel';
+import React, { Component } from 'react'
+import Header from 'components/header'
+import LeftPanel from 'components/leftpanel'
 
 export default class About extends Component {
     constructor(props){
-      super(props);
-      this.state = { 
+      super(props)
+      this.state = {
           users:JSON.parse(localStorage.getItem('users')) || 
           [
               {
@@ -25,10 +25,10 @@ export default class About extends Component {
               }
           ]
       }
-        localStorage.setItem('users', JSON.stringify(this.state.users));
+    localStorage.setItem('users', JSON.stringify(this.state.users))
     }
   render() {
-    const { children } = this.props; // eslint-disable-line
+    const { children } = this.props // eslint-disable-line
 
     return (
         <div className="container-fluid">
@@ -42,6 +42,6 @@ export default class About extends Component {
               </div>
             </div>
         </div>
-    );
+    )
   }
 }

@@ -70,21 +70,21 @@ export default class UpdateUser extends App {
                     <input
                         className={errors.fname ? "error" : ""}
                         type="text"
-                        placeholder="Enter fname"
+                        placeholder="First Name"
                         value={this.state.fname}
                         onChange={this.handleFnameChange.bind(this)}
                     />
                     <input
                         className={errors.lname ? "error" : ""}
                         type="text"
-                        placeholder="Enter lname"
+                        placeholder="Last Name"
                         value={this.state.lname}
                         onChange={this.handleLnameChange.bind(this)}
                     />
                     <input
                         className={errors.email ? "error" : ""}
                         type="text"
-                        placeholder="Enter email"
+                        placeholder="Valid Email"
                         value={this.state.email}
                         onChange={this.handleEmailChange.bind(this)}
                     />
