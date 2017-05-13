@@ -1,4 +1,3 @@
-
 import React, { Component } from 'react';
 import App from 'views/App'
 
@@ -67,30 +66,30 @@ export default class UpdateUser extends App {
         const that = this;
         return (
             <div className="col-xs-12">
-            <form className="user-form" onSubmit={this.handleSubmit.bind(this)}>
-                <input
-                    className={errors.fname ? "error" : ""}
-                    type="text"
-                    placeholder="Enter fname"
-                    value={this.state.fname}
-                    onChange={this.handleFnameChange.bind(this)}
-                />
-                <input
-                    className={errors.lname ? "error" : ""}
-                    type="text"
-                    placeholder="Enter lname"
-                    value={this.state.lname}
-                    onChange={this.handleLnameChange.bind(this)}
-                />
-                <input
-                    className={errors.email ? "error" : ""}
-                    type="text"
-                    placeholder="Enter email"
-                    value={this.state.email}
-                    onChange={this.handleEmailChange.bind(this)}
-                />
-                <button disabled={isDisabled}>Sign up</button>
-            </form>
+                <form className="user-form" onSubmit={this.handleSubmit.bind(this)}>
+                    <input
+                        className={errors.fname ? "error" : ""}
+                        type="text"
+                        placeholder="Enter fname"
+                        value={this.state.fname}
+                        onChange={this.handleFnameChange.bind(this)}
+                    />
+                    <input
+                        className={errors.lname ? "error" : ""}
+                        type="text"
+                        placeholder="Enter lname"
+                        value={this.state.lname}
+                        onChange={this.handleLnameChange.bind(this)}
+                    />
+                    <input
+                        className={errors.email ? "error" : ""}
+                        type="text"
+                        placeholder="Enter email"
+                        value={this.state.email}
+                        onChange={this.handleEmailChange.bind(this)}
+                    />
+                    <button disabled={isDisabled}>Validate</button>
+                </form>
                 <div className="col-xs-12">
                     <h3>user list</h3>
                     <ul className="list-group">{
@@ -99,8 +98,8 @@ export default class UpdateUser extends App {
                         }.bind(this))
                     }
                     </ul>
-                    </div>
                 </div>
+            </div>
         );
     }
 }

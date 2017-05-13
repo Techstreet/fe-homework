@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 import Header from 'components/header';
 import LeftPanel from 'components/leftpanel';
 
@@ -10,19 +9,19 @@ export default class About extends Component {
           users:JSON.parse(localStorage.getItem('users')) || 
           [
               {
-                  fname: 'john',
-                  lname: 'doe',
+                  fname: 'John',
+                  lname: 'Doe',
                   email: 'john@gmail.com'
               },
               {
-                  fname: 'kim',
-                  lname: 'john',
+                  fname: 'Kim',
+                  lname: 'John',
                   email: 'kim@gmail.com'
               },
               {
-                  fname: 'billie',
-                  lname: 'john',
-                  email: 'billie@gmail.com'
+                  fname: 'Danny',
+                  lname: 'Patel',
+                  email: 'dpatel@gmail.com'
               }
           ]
       }

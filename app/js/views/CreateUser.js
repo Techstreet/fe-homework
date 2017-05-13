@@ -1,6 +1,16 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 // import UserForm from 'components/UserForm'
 import App from 'views/App'
+
+
+const validate = (email, fname, lname, flag) => {
+  // true means invalid, so our conditions got reversed
+  return {
+    email: email.length === 0 && flag,
+    fname: fname.length === 0 && flag,
+    lname: lname.length === 0 && flag,
+  };
+}
 
 export default class CreateUser extends App {
   constructor() {
@@ -50,7 +60,7 @@ export default class CreateUser extends App {
         everFocusedLname: false,
         everFocusedFname: false,
         inFocus: '',
-        submit:false
+        submit: false
       });
       localStorage.setItem('users', JSON.stringify(this.state.users));
     }
@@ -67,49 +77,40 @@ export default class CreateUser extends App {
     const isDisabled = Object.keys(errors).some(x => errors[x]);
     return (
         <div className="col-xs-12">
-        <form onSubmit={this.handleSubmit.bind(this)}>
-          <input
-              className={errors.fname ? "error" : ""}
-              type="text"
-              placeholder="Enter fname"
-              value={this.state.fname}
-              onChange={this.handleFnameChange.bind(this)}
-          />
-          <input
-              className={errors.lname ? "error" : ""}
-              type="text"
-              placeholder="Enter lname"
-              value={this.state.lname}
-              onChange={this.handleLnameChange.bind(this)}
-          />
-          <input
-              className={errors.email ? "error" : ""}
-              type="text"
-              placeholder="Enter email"
-              value={this.state.email}
-              onChange={this.handleEmailChange.bind(this)}
-          />
-          <input type="submit" value="Add User"/>
-        </form>
-        <div className="col-xs-12">
-          <h3>user list</h3>
-          <ul className="list-group">{
-            this.state.users.map(function (user) {
-              return <li className="list-group-item" key={user.fname}>{user.fname} {user.lname} {user.email} </li>
-            })
-          }
-          </ul>
-            </div>
+          <form onSubmit={this.handleSubmit.bind(this)}>
+            <input
+                className={errors.fname ? "error" : ""}
+                type="text"
+                placeholder="Enter fname"
+                value={this.state.fname}
+                onChange={this.handleFnameChange.bind(this)}
+            />
+            <input
+                className={errors.lname ? "error" : ""}
+                type="text"
+                placeholder="Enter lname"
+                value={this.state.lname}
+                onChange={this.handleLnameChange.bind(this)}
+            />
+            <input
+                className={errors.email ? "error" : ""}
+                type="text"
+                placeholder="Enter email"
+                value={this.state.email}
+                onChange={this.handleEmailChange.bind(this)}
+            />
+            <input type="submit" value="Add User"/>
+          </form>
+          <div className="col-xs-12">
+            <h3>user list</h3>
+            <ul className="list-group">{
+              this.state.users.map(function (user) {
+                return <li className="list-group-item" key={user.fname}>{user.fname} {user.lname} {user.email} </li>
+              })
+            }
+            </ul>
           </div>
+        </div>
     );
   }
-}
-
-function validate(email, fname, lname, flag) {
-  // true means invalid, so our conditions got reversed
-  return {
-    email: email.length === 0 && flag,
-    fname: fname.length === 0 && flag,
-    lname: lname.length === 0 && flag,
-  };
 }
