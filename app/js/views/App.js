@@ -6,8 +6,9 @@ import LeftPanel from 'components/leftpanel';
 export default class About extends Component {
     constructor(props){
       super(props);
-      this.state = {
-          users:[
+      this.state = { 
+          users:JSON.parse(localStorage.getItem('users')) || 
+          [
               {
                   fname: 'john',
                   lname: 'doe',
