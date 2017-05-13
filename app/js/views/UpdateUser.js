@@ -63,7 +63,8 @@ export default class UpdateUser extends App {
     render() {
         const errors = validate(this.state.email, this.state.fname, this.state.lname, this.state.submit);
         const isDisabled = Object.keys(errors).some(x => errors[x]);
-        const that = this;
+        const that = this
+        const { users } = this.state
         return (
             <div className="col-xs-12">
                 <form className="user-form" onSubmit={this.handleSubmit.bind(this)}>
@@ -93,9 +94,14 @@ export default class UpdateUser extends App {
                 <div className="col-xs-12">
                     <h3>user list</h3>
                     <ul className="list-group">{
-                        this.state.users.map(function (user) {
-                            return <li className="list-group-item" key={user.fname}>{user.fname} {user.lname} {user.email} <a  onClick={ this.editUser.bind(this, user)}>Edit</a></li>
-                        }.bind(this))
+                            users.map((user, index) => {
+                                return (
+                                    <li className="list-group-item" key={user.fname}>
+                                        {index + 1}. {user.fname}, {user.lname} :&ndash; {user.email}
+                                        &ensp; <a style={{cursor: "pointer"}} onClick={ this.editUser.bind(this, user)}>Edit</a>
+                                    </li>
+                                )
+                            })
                     }
                     </ul>
                 </div>
