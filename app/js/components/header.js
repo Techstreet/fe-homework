@@ -9,10 +9,11 @@ const Header = () => (
             <h3>UserData</h3>
         </div>
         <div className="col-xs-8">
-                <div className="form-group" id="adv-search">
-                    <input type="text" className="form-control" />
-                        <div className="search"><span className="glyphicon glyphicon-search"
-                                                      aria-hidden="true"></span></div>
+            <div className="form-group" id="adv-search">
+                <input type="text" className="form-control" />
+                    <div className="search">
+                        <span className="glyphicon glyphicon-search"></span>
+                    </div>
             </div>
         </div>
         <div className="header-right pull-left">
